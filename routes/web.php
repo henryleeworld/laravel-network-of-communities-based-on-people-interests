@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Auth::routes(['verify' => true]);
 
 Route::get('c/{slug}',
@@ -32,4 +31,3 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::resource('posts.comments', \App\Http\Controllers\PostCommentController::class);
     Route::post('posts/{post_id}/report', [\App\Http\Controllers\CommunityPostController::class, 'report'])->name('post.report');
 });
-
