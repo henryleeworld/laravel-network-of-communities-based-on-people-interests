@@ -14,26 +14,24 @@ class AppServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
-     *
-     * @return void
      */
-    public function register()
+    public function register(): void
     {
         //
     }
 
     /**
      * Bootstrap any application services.
-     *
-     * @return void
      */
-    public function boot()
+    public function boot(): void
     {
-        Paginator::useBootstrap();
+        if (! app()->runningInConsole()) {
+            Paginator::useBootstrap();
 
-        View::share('newestPosts', Post::with('community')->latest()->take(5)->get());
-        View::share('newestCommunities', Community::withCount('posts')->latest()->take(5)->get());
+            View::share('newestPosts', Post::with('community')->latest()->take(5)->get());
+            View::share('newestCommunities', Community::withCount('posts')->latest()->take(5)->get());
 
-        PostVote::observe(PostVoteObserver::class);
+            PostVote::observe(PostVoteObserver::class);
+        }
     }
 }

@@ -1,4 +1,4 @@
-# Laravel 9 基於使用者興趣的社群網路
+# Laravel 10 基於使用者興趣的社群網路
 
 使用者加入有興趣的討論版以交流訊息、互相討論，自然而然形成了一個社群，是一個匯聚世界上所有有趣事物的地方。
 
@@ -16,9 +16,21 @@ $ composer install
 ```sh
 $ php artisan key:generate
 ```
-- 執行安裝 Laravel Mix 引用的依賴項目，並執行所有 Mix 任務。
+- 執行 __Artisan__ 指令的 __storage:link__ 來建立連結符號，建立一個從 `public/storage` 到 `storage/app/public` 的符號連結。
 ```sh
-$ npm install && npm run dev
+$ php artisan storage:link
+```
+- 執行 __Artisan__ 指令的 __migrate__ 來執行所有未完成的遷移，並執行資料庫填充（如果要測試的話）。
+```sh
+$ php artisan migrate --seed
+```
+- 執行安裝 Vite 和 Laravel 擴充套件引用的依賴項目。
+```sh
+$ npm install
+```
+- 執行正式環境版本化資源管道並編譯。
+```sh
+$ npm run build
 ```
 - 在瀏覽器中輸入已定義的路由 URL 來訪問，例如：http://127.0.0.1:8000。
 - 你可以經由 `/` 來瀏覽社群網路。
@@ -26,11 +38,11 @@ $ npm install && npm run dev
 ----
 
 ## 畫面截圖
-![](https://i.imgur.com/Eb7Khw3.png)
+![](https://i.imgur.com/s5o1Hco.png)
 > 社群如同一個個緊密的小圈子，他們可以非常友善…或是非常凶狠
 
-![](https://i.imgur.com/ekksPjC.png)
+![](https://i.imgur.com/iHogZ9G.png)
 > 讓你的貼文內容保持創意，有趣的內容才能引起關注
 
-![](https://i.imgur.com/wZ4WnhD.gif)
+![](https://i.imgur.com/VejZoic.gif)
 > 投票機制表達討論串價值高低

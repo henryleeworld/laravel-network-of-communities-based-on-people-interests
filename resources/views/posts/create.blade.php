@@ -10,7 +10,7 @@
                   enctype="multipart/form-data">
                 @csrf
 
-                <div class="form-group row">
+                <div class="row mb-3">
                     <label for="title" class="col-md-4 col-form-label text-md-right">{{ trans('frontend.posts.content.title') }}*</label>
 
                     <div class="col-md-6">
@@ -25,7 +25,7 @@
                     </div>
                 </div>
 
-                <div class="form-group row">
+                <div class="row mb-3">
                     <label for="post_text" class="col-md-4 col-form-label text-md-right">{{ trans('frontend.posts.content.post_text') }}</label>
 
                     <div class="col-md-6">
@@ -40,7 +40,7 @@
                     </div>
                 </div>
 
-                <div class="form-group row">
+                <div class="row mb-3">
                     <label for="post_url" class="col-md-4 col-form-label text-md-right">{{ trans('frontend.posts.content.url_link') }}</label>
 
                     <div class="col-md-6">
@@ -55,7 +55,7 @@
                     </div>
                 </div>
 
-                <div class="form-group row">
+                <div class="row mb-3">
                     <label for="post_image" class="col-md-4 col-form-label text-md-right">{{ trans('frontend.posts.content.image') }}</label>
 
                     <div class="col-md-6">
@@ -69,7 +69,7 @@
                     </div>
                 </div>
 
-                <div class="form-group row mb-0">
+                <div class="row mb-0">
                     <div class="col-md-6 offset-md-4">
                         <button type="submit" class="btn btn-primary">
                             {{ trans('frontend.posts.content.create_post') }}
