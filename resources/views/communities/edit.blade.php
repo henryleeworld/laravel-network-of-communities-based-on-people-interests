@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="card">
-        <div class="card-header">{{ trans('frontend.communities.content.edit_community') }}</div>
+        <div class="card-header">{{ __('Edit Community') }}</div>
 
         <div class="card-body">
             <form method="POST" action="{{ route('communities.update', $community) }}">
@@ -10,7 +10,7 @@
                 @method('PUT')
 
                 <div class="row mb-3">
-                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ trans('frontend.communities.content.name') }}*</label>
+                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}*</label>
 
                     <div class="col-md-6">
                         <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
@@ -25,7 +25,7 @@
                 </div>
 
                 <div class="row mb-3">
-                    <label for="description" class="col-md-4 col-form-label text-md-right">{{ trans('frontend.communities.content.description') }}
+                    <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}
                         *</label>
 
                     <div class="col-md-6">
@@ -41,7 +41,7 @@
                 </div>
 
                 <div class="row mb-3">
-                    <label for="topics" class="col-md-4 col-form-label text-md-right">{{ trans('frontend.communities.content.topics') }}</label>
+                    <label for="topics" class="col-md-4 col-form-label text-md-right">{{ __('Topics') }}</label>
 
                     <div class="col-md-6">
                         <select name="topics[]" multiple class="form-control select2">
@@ -56,7 +56,7 @@
                 <div class="row mb-0">
                     <div class="col-md-6 offset-md-4">
                         <button type="submit" class="btn btn-primary">
-                            {{ trans('frontend.communities.content.update_community') }}
+                             {{ __('Update Community') }}
                         </button>
                     </div>
                 </div>

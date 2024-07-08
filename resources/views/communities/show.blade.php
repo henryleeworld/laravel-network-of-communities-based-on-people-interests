@@ -9,17 +9,17 @@
                 </div>
                 <div class="col-4 text-right">
                     <a href="{{ route('communities.show', $community) }}"
-                       @if (request('sort', '') == '') style="font-size: 20px" @endif>{{ trans('frontend.posts.content.newest_posts') }}</a>
+                       @if (request('sort', '') == '') style="font-size: 20px" @endif>{{ __('Newest posts') }}</a>
                     <br/>
                     <a href="{{ route('communities.show', $community) }}?sort=popular"
-                       @if (request('sort', '') == 'popular') style="font-size: 20px" @endif>{{ trans('frontend.posts.content.popular_posts') }}</a>
+                       @if (request('sort', '') == 'popular') style="font-size: 20px" @endif>{{ __('Popular posts') }}</a>
                 </div>
             </div>
         </div>
 
         <div class="card-body">
             <a href="{{ route('communities.posts.create', $community) }}"
-               class="btn btn-primary">{{ trans('frontend.posts.content.add_post') }}</a>
+               class="btn btn-primary">{{ __('Add Post') }}</a>
             <br/><br/>
             @forelse ($posts as $post)
                 <div class="row">
@@ -34,7 +34,7 @@
                 </div>
                 <hr/>
             @empty
-                {{ trans('frontend.posts.content.no_posts_found') }}
+                {{ __('No posts found.') }}
             @endforelse
 
             {{ $posts->links() }}

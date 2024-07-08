@@ -8,12 +8,10 @@ use Illuminate\Database\Seeder;
 class PostVotesSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
-     *
-     * @return void
+     * Run the database seeders.
      */
-    public function run()
+    public function run(): void
     {
-        PostVote::factory()->times(500)->create();
+        PostVote::factory()->count(500)->create();
     }
 }

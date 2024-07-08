@@ -2,19 +2,19 @@
 
 @section('content')
     <div class="card">
-        <div class="card-header">{{ trans('frontend.communities.content.my_communities') }}</div>
+        <div class="card-header">{{ __('My Communities') }}</div>
 
         <div class="card-body">
             @if (session('message'))
                 <div class="alert alert-info">{{ session('message') }}</div>
                 <br/>
             @endif
-            <a href="{{ route('communities.create') }}" class="btn btn-primary">{{ trans('frontend.communities.content.new_community') }}</a>
+            <a href="{{ route('communities.create') }}" class="btn btn-primary">{{ __('New Community') }}</a>
             <br/><br/>
             <table class="table">
                 <thead>
                 <tr>
-                    <th>{{ trans('frontend.communities.content.name') }}</th>
+                    <th>{{ __('Name') }}</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -26,7 +26,7 @@
                         </td>
                         <td>
                             <a href="{{ route('communities.edit', $community) }}"
-                               class="btn btn-sm btn-primary">{{ trans('frontend.communities.content.edit') }}</a>
+                               class="btn btn-sm btn-primary">{{ __('Edit') }}</a>
                             <form action="{{ route('communities.destroy', $community) }}"
                                   method="POST"
                                   style="display: inline-block">
@@ -34,7 +34,7 @@
                                 @method('DELETE')
                                 <button type="submit"
                                         class="btn btn-sm btn-danger"
-                                        onclick="return confirm('Are you sure?')">{{ trans('frontend.communities.content.delete') }}
+                                        onclick="return confirm('__('Are you sure?')')">{{ __('Delete') }}
                                 </button>
                             </form>
                         </td>

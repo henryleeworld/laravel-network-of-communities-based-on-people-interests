@@ -11,23 +11,23 @@ class CommunityFactory extends Factory
     /**
      * The name of the factory's corresponding model.
      *
-     * @var string
+     * @var class-string<\Illuminate\Database\Eloquent\Model>
      */
     protected $model = Community::class;
 
     /**
      * Define the model's default state.
      *
-     * @return array
+     * @return array<string, mixed>
      */
-    public function definition()
+    public function definition(): array
     {
-        $name = $this->faker->text(30);
+        $name = fake()->text(30);
 
         return [
             'name' => $name,
             'user_id' => rand(1, 100),
-            'description' => $this->faker->text(200),
+            'description' => fake()->text(200),
             'slug' => Str::slug($name)
         ];
     }

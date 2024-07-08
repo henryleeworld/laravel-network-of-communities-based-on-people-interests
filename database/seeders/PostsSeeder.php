@@ -8,12 +8,10 @@ use Illuminate\Database\Seeder;
 class PostsSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
-     *
-     * @return void
+     * Run the database seeders.
      */
-    public function run()
+    public function run(): void
     {
-        Post::factory()->times(200)->create();
+        Post::factory()->count(200)->create();
     }
 }

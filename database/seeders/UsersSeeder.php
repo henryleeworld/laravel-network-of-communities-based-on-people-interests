@@ -8,20 +8,16 @@ use Illuminate\Database\Seeder;
 class UsersSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
-     *
-     * @return void
+     * Run the database seeders.
      */
-    public function run()
+    public function run(): void
     {
-        // Admin user
-        User::factory([
+        User::factory()->create([
+            'name' => __('Administrator'),
             'email' => 'admin@admin.com',
-            'password' => 'password',
-            'email_verified_at' => now(),
             'is_admin' => true
-        ])->create();
+        ]);
 
-        User::factory()->times(100)->create();
+        User::factory()->count(100)->create();
     }
 }

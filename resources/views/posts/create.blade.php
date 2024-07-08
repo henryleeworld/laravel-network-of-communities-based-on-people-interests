@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="card">
-        <div class="card-header">{{ $community->name }}{{ trans('frontend.posts.content.colon') }}{{ trans('frontend.posts.content.add_post') }}</div>
+        <div class="card-header">{{ $community->name }}{{ __(': Add Post') }}</div>
 
         <div class="card-body">
             <form method="POST"
@@ -11,7 +11,7 @@
                 @csrf
 
                 <div class="row mb-3">
-                    <label for="title" class="col-md-4 col-form-label text-md-right">{{ trans('frontend.posts.content.title') }}*</label>
+                    <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('Title') }}*</label>
 
                     <div class="col-md-6">
                         <input id="title" type="text" class="form-control @error('title') is-invalid @enderror"
@@ -26,7 +26,7 @@
                 </div>
 
                 <div class="row mb-3">
-                    <label for="post_text" class="col-md-4 col-form-label text-md-right">{{ trans('frontend.posts.content.post_text') }}</label>
+                    <label for="post_text" class="col-md-4 col-form-label text-md-right">{{ __('Post Text') }}</label>
 
                     <div class="col-md-6">
                         <textarea rows="10" class="form-control @error('post_text') is-invalid @enderror"
@@ -41,7 +41,7 @@
                 </div>
 
                 <div class="row mb-3">
-                    <label for="post_url" class="col-md-4 col-form-label text-md-right">{{ trans('frontend.posts.content.url_link') }}</label>
+                    <label for="post_url" class="col-md-4 col-form-label text-md-right">{{ __('URL Link') }}</label>
 
                     <div class="col-md-6">
                         <input id="post_url" type="text" class="form-control @error('post_url') is-invalid @enderror"
@@ -56,7 +56,7 @@
                 </div>
 
                 <div class="row mb-3">
-                    <label for="post_image" class="col-md-4 col-form-label text-md-right">{{ trans('frontend.posts.content.image') }}</label>
+                    <label for="post_image" class="col-md-4 col-form-label text-md-right">{{ __('Image') }}</label>
 
                     <div class="col-md-6">
                         <input type="file" name="post_image"/>
@@ -72,7 +72,7 @@
                 <div class="row mb-0">
                     <div class="col-md-6 offset-md-4">
                         <button type="submit" class="btn btn-primary">
-                            {{ trans('frontend.posts.content.create_post') }}
+                            {{ __('Create Post') }}
                         </button>
                     </div>
                 </div>

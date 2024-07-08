@@ -10,13 +10,11 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    @livewireStyles
+    @vite(['resources/sass/app.scss'])
 </head>
 <body>
     <div id="app">
@@ -55,10 +53,9 @@
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
-
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('communities.index') }}">
-                                        {{ trans('frontend.communities.content.my_communities') }}
+                                        {{ __('My Communities') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -85,7 +82,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="card">
-                            <div class="card-header">{{ trans('frontend.posts.content.newest_posts') }}</div>
+                            <div class="card-header">{{ __('Newest posts') }}</div>
                             <div class="card-body">
                                 @foreach($newestPosts as $post)
                                     <a href="{{ route('communities.posts.show', [$post->id]) }}">{{ $post->title }}</a>
@@ -95,12 +92,12 @@
                             </div>
                         </div>
                         <div class="card mt-4">
-                            <div class="card-header">{{ trans('frontend.communities.content.newest_communities') }}</div>
+                            <div class="card-header">{{ __('Newest communities') }}</div>
 
                             <div class="card-body">
                                 @foreach($newestCommunities as $community)
                                     <a href="{{ route('communities.show', $community) }}">{{ $community->name }}</a>
-                                    ({{ $community->posts_count }} {{ trans('frontend.posts.content.posts') }})
+                                    ({{ $community->posts_count }} {{ __('posts') }})
                                     <div class="mt-1">{{ $community->created_at->diffForHumans() }}</div>
                                     <hr />
                                 @endforeach
@@ -111,9 +108,10 @@
             </div>
         </main>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
-    <script>
+    <!-- Scripts -->
+    @vite(['resources/js/app.js'])
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js" defer></script>
+    <script type="module">
     $(document).ready(function() {
         $('.select2').select2();
     });

@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ trans('frontend.posts.content.most_popular_posts') }}</div>
+                <div class="card-header">{{ __('Most Popular Posts') }}</div>
 
                 <div class="card-body">
                     @foreach ($posts as $post)

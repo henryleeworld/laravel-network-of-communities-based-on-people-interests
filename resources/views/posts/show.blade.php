@@ -22,29 +22,29 @@
 
             @auth
                 <hr/>
-                <h3>{{ trans('frontend.comments.title') }}</h3>
+                <h3>{{ __('Comments') }}</h3>
                 @forelse ($post->comments as $comment)
                     <b>{{ $comment->user->name }}</b>
                     <br/>
                     {{ $comment->created_at->diffForHumans() }}
                     <p class="mt-2">{{ $comment->comment_text }}</p>
                 @empty
-                    {{ trans('frontend.comments.content.no_comments_yet') }}
+                    {{ __('No comments yet.') }}
                 @endforelse
                 <hr/>
                 <form method="POST" action="{{ route('posts.comments.store', $post) }}">
                     @csrf
-                    {{ trans('frontend.comments.content.add_a_comment') }}
+                    {{ __('Add a comment:') }}
                     <br/>
                     <textarea class="form-control" name="comment_text" rows="5" required></textarea>
                     <br/>
-                    <button type="submit" class="btn btn-sm btn-primary">{{ trans('frontend.comments.content.add_comment') }}</button>
+                    <button type="submit" class="btn btn-sm btn-primary">{{ __('Add Comment') }}</button>
                 </form>
 
                 <hr/>
                 @can('edit-post', $post)
                     <a href="{{ route('communities.posts.edit', [$post->community, $post]) }}"
-                       class="btn btn-sm btn-primary">{{ trans('frontend.posts.content.edit_post') }}</a>
+                       class="btn btn-sm btn-primary">{{ __('Edit post') }}</a>
                 @endcan
 
                 @can('delete-post', $post)
@@ -55,7 +55,7 @@
                         @method('DELETE')
                         <button type="submit"
                                 class="btn btn-sm btn-danger"
-                                onclick="return confirm('{{ trans('frontend.posts.content.are_you_sure') }}')">{{ trans('frontend.posts.content.delete_post') }}
+                                onclick="return confirm('{{ __('Are you sure?') }}')">{{ __('Delete post') }}
                         </button>
                     </form>
                 @else
@@ -65,7 +65,7 @@
                         @csrf
                         <button type="submit"
                                 class="btn btn-sm btn-danger"
-                                onclick="return confirm('{{ trans('frontend.posts.content.are_you_sure') }}')">{{ trans('frontend.posts.content.report_post') }}
+                                onclick="return confirm('{{ __('Are you sure?') }}')">{{ trans('Report post as inappropriate') }}
                         </button>
                     </form>
                 @endcan
