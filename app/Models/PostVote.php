@@ -8,17 +8,18 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class PostVote extends Model
 {
+    /** @use HasFactory<\Database\Factories\PostVoteFactory> */
     use HasFactory;
 
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $fillable = ['post_id', 'user_id', 'vote'];
 
     /**
-     * Get the post that post vote.
+     * Get the post that owns the post vote.
      */
     public function post(): BelongsTo
     {

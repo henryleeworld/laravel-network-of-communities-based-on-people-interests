@@ -17,7 +17,6 @@ class UsersSeeder extends Seeder
             'email' => 'admin@admin.com',
             'is_admin' => true
         ]);
-
         User::factory()->count(100)->create();
     }
 }

@@ -12,12 +12,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Community extends Model
 {
-    use HasFactory, SoftDeletes, Sluggable;
+    /** @use HasFactory<\Database\Factories\CommunityFactory> */
+    use HasFactory, Sluggable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $fillable = ['user_id', 'name', 'description', 'slug'];
 
@@ -39,8 +40,6 @@ class Community extends Model
 
     /**
      * Return the sluggable configuration array for this model.
-     *
-     * @return array
      */
     public function sluggable(): array
     {
@@ -57,7 +56,7 @@ class Community extends Model
     }
 
     /**
-     * Get the posts for the community.
+     * Get all of the posts for the community.
      */
     public function posts(): HasMany
     {

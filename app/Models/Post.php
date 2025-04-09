@@ -10,12 +10,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
+    /** @use HasFactory<\Database\Factories\PostFactory> */
     use HasFactory, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $fillable = ['community_id', 'user_id', 'title', 'post_text', 'post_image', 'post_url', 'votes'];
 
@@ -36,7 +37,7 @@ class Post extends Model
     }
 
     /**
-     * Get all of the votes this week for the post.
+     * Get the votes this week for the post.
      */
     public function votesThisWeek(): HasMany
     {
@@ -45,7 +46,7 @@ class Post extends Model
     }
 
     /**
-     * Get the latest comments for the post.
+     * Get the comments for the post.
      */
     public function comments(): HasMany
     {

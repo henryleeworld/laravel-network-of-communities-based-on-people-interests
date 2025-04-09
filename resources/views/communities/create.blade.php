@@ -45,7 +45,7 @@
                     <div class="col-md-6">
                         <select name="topics[]" multiple class="form-control select2">
                             @foreach ($topics as $topic)
-                                <option value="{{ $topic->id }}">{{ $topic->name }}</option>
+                                <option value="{{ $topic->id }}">{{ __($topic->name) }}</option>
                             @endforeach
                         </select>
                     </div>

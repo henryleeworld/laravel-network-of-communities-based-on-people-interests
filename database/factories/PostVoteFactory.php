@@ -5,6 +5,9 @@ namespace Database\Factories;
 use App\Models\PostVote;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\PostVote>
+ */
 class PostVoteFactory extends Factory
 {
     /**

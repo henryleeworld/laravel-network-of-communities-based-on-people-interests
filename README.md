@@ -1,4 +1,4 @@
-# Laravel 11 基於使用者興趣的社群網路
+# Laravel 12 基於使用者興趣的社群網路
 
 使用者加入有興趣的討論版以交流訊息、互相討論，自然而然形成了一個社群，是一個匯聚世界上所有有趣事物的地方。
 
@@ -38,11 +38,11 @@ $ npm run build
 ----
 
 ## 畫面截圖
-![](https://i.imgur.com/kHSiMrP.png)
+![](https://i.imgur.com/68WsDKc.png)
 > 社群如同一個個緊密的小圈子，他們可以非常友善…或是非常凶狠
 
-![](https://i.imgur.com/I9uHNxB.png)
+![](https://i.imgur.com/kBvEvFO.png)
 > 讓你的貼文內容保持創意，有趣的內容才能引起關注
 
-![](https://i.imgur.com/GzZgGvZ.gif)
+![](https://i.imgur.com/5SLA1mg.gif)
 > 投票機制表達討論串價值高低

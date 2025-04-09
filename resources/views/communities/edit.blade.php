@@ -47,7 +47,7 @@
                         <select name="topics[]" multiple class="form-control select2">
                             @foreach ($topics as $topic)
                                 <option value="{{ $topic->id }}"
-                                        @if ($community->topics->contains($topic->id)) selected @endif>{{ $topic->name }}</option>
+                                        @if ($community->topics->contains($topic->id)) selected @endif>{{ __($topic->name) }}</option>
                             @endforeach
                         </select>
                     </div>
