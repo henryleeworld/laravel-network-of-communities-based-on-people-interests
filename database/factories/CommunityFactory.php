@@ -31,7 +31,7 @@ class CommunityFactory extends Factory
             'name' => $name,
             'user_id' => rand(1, 100),
             'description' => fake()->text(200),
-            'slug' => Str::slug($name)
+            'slug' => Str::slug($name, language: app()->getLocale())
         ];
     }
 }
