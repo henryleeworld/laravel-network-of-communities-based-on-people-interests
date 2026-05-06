@@ -7,7 +7,6 @@ use App\Http\Controllers\PostCommentController;
 use Illuminate\Support\Facades\Route;
 
 Auth::routes(['verify' => true]);
-
 Route::get('c/{slug}',
     [CommunityController::class, 'show'])
     ->name('communities.show');

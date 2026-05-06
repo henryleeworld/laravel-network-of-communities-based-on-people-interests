@@ -11,14 +11,11 @@ class PostReportNotification extends Notification
 {
     use Queueable;
 
-    private $post;
-
     /**
      * Create a new notification instance.
      */
-    public function __construct(Post $post)
+    public function __construct(private Post $post)
     {
-        $this->post = $post;
     }
 
     /**

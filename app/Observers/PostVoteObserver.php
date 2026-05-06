@@ -8,13 +8,9 @@ class PostVoteObserver
 {
     /**
      * Handle the PostVote "created" event.
-     *
-     * @param  \App\Models\PostVote  $postVote
-     * @return void
      */
-    public function created(PostVote $postVote)
+    public function created(PostVote $postVote): void
     {
         $postVote->post()->increment('votes', $postVote->vote);
     }
-
 }

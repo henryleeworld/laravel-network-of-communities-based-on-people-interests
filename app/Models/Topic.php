@@ -2,18 +2,14 @@
 
 namespace App\Models;
 
+use Database\Factories\TopicFactory;
+use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+#[Fillable(['name'])]
 class Topic extends Model
 {
-    /** @use HasFactory<\Database\Factories\TopicFactory> */
+    /** @use HasFactory<TopicFactory> */
     use HasFactory;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var list<string>
-     */
-    protected $fillable = ['name'];
 }

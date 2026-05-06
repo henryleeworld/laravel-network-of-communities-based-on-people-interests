@@ -3,21 +3,16 @@
 namespace Database\Factories;
 
 use App\Models\Community;
+use Illuminate\Database\Eloquent\Factories\Attributes\UseModel;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Community>
+ * @extends Factory<Community>
  */
+#[UseModel(Community::class)]
 class CommunityFactory extends Factory
 {
-    /**
-     * The name of the factory's corresponding model.
-     *
-     * @var class-string<\Illuminate\Database\Eloquent\Model>
-     */
-    protected $model = Community::class;
-
     /**
      * Define the model's default state.
      *
@@ -25,7 +20,7 @@ class CommunityFactory extends Factory
      */
     public function definition(): array
     {
-        $name = fake()->text(30);
+        $name = fake()->text(50);
 
         return [
             'name' => $name,

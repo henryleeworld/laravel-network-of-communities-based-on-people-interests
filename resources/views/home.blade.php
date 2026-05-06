@@ -1,5 +1,7 @@
+<?php
+use Illuminate\Support\Str;
+?>
 @extends('layouts.app')
-
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -16,7 +18,7 @@
                                 <h2>{{ $post->title }}</h2>
                             </a>
                             <p>{{ $post->created_at->diffForHumans() }}</p>
-                            <p>{{ \Illuminate\Support\Str::words($post->post_text, 10) }}</p>
+                            <p>{{ Str::words($post->post_text, 10) }}</p>
                         </div>
                     </div>
                     <hr/>

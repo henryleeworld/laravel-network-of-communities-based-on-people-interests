@@ -2,21 +2,17 @@
 
 namespace App\Models;
 
+use Database\Factories\PostVoteFactory;
+use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+#[Fillable(['post_id', 'user_id', 'vote'])]
 class PostVote extends Model
 {
-    /** @use HasFactory<\Database\Factories\PostVoteFactory> */
+    /** @use HasFactory<PostVoteFactory> */
     use HasFactory;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var list<string>
-     */
-    protected $fillable = ['post_id', 'user_id', 'vote'];
 
     /**
      * Get the post that owns the post vote.

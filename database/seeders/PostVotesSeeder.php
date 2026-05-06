@@ -12,6 +12,6 @@ class PostVotesSeeder extends Seeder
      */
     public function run(): void
     {
-        PostVote::factory()->count(500)->create();
+        PostVote::factory()->count(200)->create();
     }
 }

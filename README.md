@@ -1,8 +1,9 @@
-# Laravel 12 基於使用者興趣的社群網路
+# Laravel 13 基於使用者興趣的社群網路
 
 使用者加入有興趣的討論版以交流訊息、互相討論，自然而然形成了一個社群，是一個匯聚世界上所有有趣事物的地方。
 
 ## 使用方式
+- 打開 php.ini 檔案，啟用 PHP 擴充模組 gd，並重啟服務器。
 - 把整個專案複製一份到你的電腦裡，這裡指的「內容」不是只有檔案，而是指所有整個專案的歷史紀錄、分支、標籤等內容都會複製一份下來。
 ```sh
 $ git clone
@@ -38,11 +39,11 @@ $ npm run build
 ----
 
 ## 畫面截圖
-![](https://i.imgur.com/68WsDKc.png)
+![](https://i.imgur.com/nMdFVsI.png)
 > 社群如同一個個緊密的小圈子，他們可以非常友善…或是非常凶狠
 
-![](https://i.imgur.com/kBvEvFO.png)
+![](https://i.imgur.com/fKCvDV7.png)
 > 讓你的貼文內容保持創意，有趣的內容才能引起關注
 
-![](https://i.imgur.com/5SLA1mg.gif)
+![](https://i.imgur.com/AujS051.gif)
 > 投票機制表達討論串價值高低

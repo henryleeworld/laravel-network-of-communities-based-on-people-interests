@@ -5,18 +5,14 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePostRequest;
 use App\Models\Community;
 use App\Models\Post;
-use App\Models\PostVote;
 use App\Notifications\PostReportNotification;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
-use Intervention\Image\Facades\Image;
+use Intervention\Image\Laravel\Facades\Image;
 
 class CommunityPostController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function index(Community $community)
     {
@@ -25,8 +21,6 @@ class CommunityPostController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function create(Community $community)
     {
@@ -35,9 +29,6 @@ class CommunityPostController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
      */
     public function store(StorePostRequest $request, Community $community)
     {
@@ -54,11 +45,11 @@ class CommunityPostController extends Controller
                 ->storeAs('posts/' . $post->id, $image);
             $post->update(['post_image' => $image]);
 
-            $file = Image::make(storage_path('app/public/posts/' . $post->id . '/' . $image));
+            $file = Image::decode(storage_path('app/private/posts/' . $post->id . '/' . $image));
             $file->resize(600, null, function ($constraint) {
                 $constraint->aspectRatio();
             });
-            $file->save(storage_path('app/public/posts/' . $post->id . '/thumbnail_' . $image));
+            $file->save(storage_path('app/private/posts/' . $post->id . '/thumbnail_' . $image));
         }
 
         return redirect()->route('communities.show', $community);
@@ -66,9 +57,6 @@ class CommunityPostController extends Controller
 
     /**
      * Display the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
      */
     public function show($postId)
     {
@@ -79,9 +67,6 @@ class CommunityPostController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
      */
     public function edit(Community $community, Post $post)
     {
@@ -94,10 +79,6 @@ class CommunityPostController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
-     * @return \Illuminate\Http\Response
      */
     public function update(StorePostRequest $request, Community $community, Post $post)
     {
@@ -130,9 +111,6 @@ class CommunityPostController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
      */
     public function destroy(Community $community, Post $post)
     {
@@ -152,6 +130,6 @@ class CommunityPostController extends Controller
         $post->community->user->notify(new PostReportNotification($post));
 
         return redirect()->route('communities.posts.show', [$post->id])
-            ->with('message', 'Your report has been sent.');
+            ->with('message', __('Your report has been sent.'));
     }
 }

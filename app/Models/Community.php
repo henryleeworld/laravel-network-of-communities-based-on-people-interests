@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Cviebrock\EloquentSluggable\Sluggable;
+use Database\Factories\CommunityFactory;
+use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -10,17 +12,31 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+#[Fillable(['user_id', 'name', 'description', 'slug'])]
 class Community extends Model
 {
-    /** @use HasFactory<\Database\Factories\CommunityFactory> */
+    /** @use HasFactory<CommunityFactory> */
     use HasFactory, Sluggable, SoftDeletes;
 
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var list<string>
+     * Return the sluggable configuration array for this model.
      */
-    protected $fillable = ['user_id', 'name', 'description', 'slug'];
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
+    }
+
+    /**
+     * Get the route key for the model.
+     */
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
 
     /**
      * Get the user that owns the community.
@@ -36,23 +52,6 @@ class Community extends Model
     public function topics(): BelongsToMany
     {
         return $this->belongsToMany(Topic::class);
-    }
-
-    /**
-     * Return the sluggable configuration array for this model.
-     */
-    public function sluggable(): array
-    {
-        return [
-            'slug' => [
-                'source' => 'name'
-            ]
-        ];
-    }
-
-    public function getRouteKeyName()
-    {
-        return 'slug';
     }
 
     /**

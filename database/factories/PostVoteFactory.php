@@ -3,20 +3,15 @@
 namespace Database\Factories;
 
 use App\Models\PostVote;
+use Illuminate\Database\Eloquent\Factories\Attributes\UseModel;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\PostVote>
+ * @extends Factory<PostVote>
  */
+#[UseModel(PostVote::class)]
 class PostVoteFactory extends Factory
 {
-    /**
-     * The name of the factory's corresponding model.
-     *
-     * @var class-string<\Illuminate\Database\Eloquent\Model>
-     */
-    protected $model = PostVote::class;
-
     /**
      * Define the model's default state.
      *

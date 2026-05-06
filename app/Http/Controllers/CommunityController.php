@@ -6,14 +6,11 @@ use App\Http\Requests\StoreCommunityRequest;
 use App\Http\Requests\UpdateCommunityRequest;
 use App\Models\Community;
 use App\Models\Topic;
-use Illuminate\Http\Request;
 
 class CommunityController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -24,8 +21,6 @@ class CommunityController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function create()
     {
@@ -36,9 +31,6 @@ class CommunityController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
     public function store(StoreCommunityRequest $request)
     {
@@ -50,9 +42,6 @@ class CommunityController extends Controller
 
     /**
      * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
     public function show($slug)
     {
@@ -73,9 +62,6 @@ class CommunityController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
     public function edit(Community $community)
     {
@@ -90,10 +76,6 @@ class CommunityController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
     public function update(UpdateCommunityRequest $request, Community $community)
     {
@@ -103,14 +85,11 @@ class CommunityController extends Controller
         $community->update($request->validated());
         $community->topics()->sync($request->topics);
 
-        return redirect()->route('communities.index')->with('message', 'Successfully updated');
+        return redirect()->route('communities.index')->with('message', __('Successfully updated'));
     }
 
     /**
      * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
     public function destroy(Community $community)
     {
@@ -119,6 +98,6 @@ class CommunityController extends Controller
         }
         $community->delete();
 
-        return redirect()->route('communities.index')->with('message', 'Successfully deleted');
+        return redirect()->route('communities.index')->with('message', __('Successfully deleted'));
     }
 }
